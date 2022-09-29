@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Homework</title>
-</head>
-<body>
-<!--
+  <head>
+    <meta charset="UTF-8" />
+    <title>Homework</title>
+  </head>
+  <body>
+    <!--
 Обязательное задание.
 
 Необходимо пользователя попросить ввести температуру в градусах Цельсия,
@@ -19,10 +19,12 @@
 
 Уточнение: пользователь всегда вводит корректное число.
 -->
-<script>
-  "use strict";
-
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
-</body>
+    <script>
+      "use strict";
+      let cellsTemp = prompt("Укажите температуру в градусах С");
+      let forengaitTemp = (9 / 5) * cellsTemp + 32;
+      const result_tmp = `Цельсий: {${cellsTemp}} Фaренгейт: {${forengaitTemp}}`;
+      alert(result_tmp);
+    </script>
+  </body>
 </html>
