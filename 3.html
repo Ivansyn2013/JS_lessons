@@ -21,7 +21,17 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  let a = +prompt('Введи число а')
+  let b = +prompt('Введи число b')
+
+  if ((a > 0) && (b > 0)) 
+    console.log(a-b);
+  else if ((a < 0) && (b < 0)) 
+    console.log(a*b);
+  else if (((a < 0) && (b > 0)) || ((a > 0) && (b < 0)))
+      console.log(a+b);
+  else {};
+
 </script>
 </body>
 </html>
