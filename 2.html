@@ -51,6 +51,76 @@
   "use strict";
 
   // Здесь пишем решение, данный комментарий необходимо стереть.
+
+
+  function PostES5 (name, text, date = new Date()) {
+    this.name = name;
+    this.text = text;
+    this.date = date;
+    console.log(`Пост создан автор ${this.name} текст ${this.text} дата ${this.date}`);
+  }
+
+  PostES5.prototype.edit = function (edittext) {
+    let tmp = this.text;
+    this.text = edittext;
+    this.date = new Date();
+    console.log(`Текст ${tmp} изменен на ${this.text} ${this.date}`);
+  }
+
+  let FirstPost = new PostES5('ivan','Heloow');
+  FirstPost.edit('new text');
+
+  function AttachedPostES5 (name, text, date = new Date(), highlighted = false) {
+    PostES5.call(this, name, text, date);
+    this.highlighted = highlighted;
+  }
+
+  AttachedPostES5.prototype = Object.create(PostES5.prototype);
+  AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+  AttachedPostES5.prototype.makeTextHighlighted = function () {
+    this.highlighted = !this.highlighted;
+    console.log(`Подсветка ${this.highlighted}`);
+  }
+
+  let AttachedPost = new AttachedPostES5(FirstPost.name, FirstPost.text);
+  AttachedPost.makeTextHighlighted();
+
+
+  class PostES6 {
+    constructor (name, text, date = new Date()) {
+      this.name = name;
+      this.text = text;
+      this.date = date;
+      console.log(`Пост класс создан автор ${this.name} текст ${this.text} дата ${this.date}`);
+    }
+
+    edit(edittext) {
+      let tmp = this.text;
+      this.text = edittext;
+      this.date = new Date();
+      console.log(`Текст ${tmp} изменен на ${this.text} ${this.date}`);
+    }
+  }
+
+  class AttachedPostES6 extends PostES6 {
+    constructor (name, text, date = new Date(), highlighted = false){
+      super(name, text, date = new Date());
+      this.highlighted = highlighted;
+    }
+
+    makeTextHighlighted() {
+      this.highlighted = !this.highlighted;
+      console.log(`Подсветка ${this.highlighted}`);
+    }
+  }
+
+let secondPost = new PostES6('ivan2','second post text');
+secondPost.edit('second post new text edit');
+let secondAttPost = new AttachedPostES6 (secondPost.name, secondPost.text, secondPost.date)
+secondAttPost.makeTextHighlighted();
+secondAttPost.makeTextHighlighted();
+  
 </script>
 </body>
 </html>
