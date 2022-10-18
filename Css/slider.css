@@ -1,0 +1,48 @@
+.slider {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.slider-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.hidden-slide{
+    visibility: hidden;
+}
+
+.fa-duotone.fa-spinner-third {
+    font-size: 50px;
+    color: blue;
+    position: absolute;
+    left: calc(50% - 25px);
+    top: calc( 50% - 25px);
+
+}
+
+.slider-rigthArrow .slider-leftArrow {
+    position: absolute;
+    top:47%;
+    z-index: 3;
+    color: blue;
+    cursor: pointer;
+    font-size: 50px;
+
+}
+.slider-rigthArrow {
+    right: 5%;
+}
+.slider-leftArrow{
+    left: 5%;
+}
