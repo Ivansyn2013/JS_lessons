@@ -40,12 +40,12 @@
     }
   }
   let numParts = [];
-  function numCutter(row_num) {
+  function numCutter(rowNum) {
     
-    if ((row_num % 1 ) == 0 ) { //в этом месте не работает Number.isInteger
-      if ((row_num/10) > 0) {
-        numParts.push(row_num % 10);
-        numCutter(Math.trunc(row_num/10)); 
+    if ((Number.isInteger(rowNum) ) == 0 ) { //в этом месте не работает Number.isInteger
+      if ((rowNum/10) > 0) {
+        numParts.push(rowNum % 10);
+        numCutter(Math.trunc(rowNum/10)); 
       }
       else {
       return numParts;
